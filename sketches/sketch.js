@@ -44,13 +44,13 @@ function gotFace(err, result) {
 function draw() {
   const vidW = 240;
   const vidH = 180;
-  const vidX = width / 2 - vidW / 2;
+  const vidX = width / 2.9 - vidW / 2;
   const vidY = 40;
   image(video, vidX, vidY, vidW, vidH);
 
   // 촛불 위치 재설정 (화면 중앙 하단)
-  const candleX = width / 2;
-  const candleY = height * 0.75;
+  const candleX = width / 2.9;
+  const candleY = height * 0.2;
   drawCandle(candleX, candleY);
 
   // 입 벌림 감지 후 촛불 끄기
