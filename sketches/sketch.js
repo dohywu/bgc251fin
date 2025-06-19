@@ -1,3 +1,5 @@
+const { Responsive } = P5Template;
+
 let video;
 let faceapi;
 let detections = [];
@@ -28,7 +30,6 @@ function setup() {
   };
   faceapi = ml5.faceApi(video, options, () => faceapi.detect(gotFace));
 
-  // DOM 요소 참조
   messageDiv = select('#message');
   inputBox = select('#wish');
   startBtn = select('#start-button');
@@ -61,7 +62,7 @@ function draw() {
 
   // 연기 파티클 생성 및 업데이트
   if (!flameOn && hasBlown) {
-    if (frameCount % 15 === 0) {
+    if (frameCount % 5 === 0) {
       smokeParticles.push(new Smoke(candleX, candleY - 50));
     }
     for (let i = smokeParticles.length - 1; i >= 0; i--) {
