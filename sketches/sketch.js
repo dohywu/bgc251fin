@@ -16,13 +16,13 @@ function setup() {
   const cnv = createCanvas(windowWidth, windowHeight);
   cnv.parent('canvas-container');
 
-  // 비디오 캡처 설정
+  //비디오 캡처
   video = createCapture(VIDEO);
   video.size(240, 180);
   video.hide();
   video.elt.style.display = 'none';
 
-  // 얼굴 인식 옵션
+  //얼굴 인식 옵션
   const options = {
     withLandmarks: true,
     withDescriptors: false,
