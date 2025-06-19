@@ -48,19 +48,19 @@ function draw() {
   const vidY = 40;
   image(video, vidX, vidY, vidW, vidH);
 
-  // 촛불 위치 재설정 (화면 중앙 하단)
+  //촛불 위치
   const candleX = width / 2.9;
   const candleY = height * 0.2;
   drawCandle(candleX, candleY);
 
-  // 입 벌림 감지 후 촛불 끄기
+  //입 벌림 감지 후 촛불 끄기
   if (flameOn && mouthOpen()) {
     flameOn = false;
     hasBlown = true;
     messageDiv.html(`"${inputBox.value()}" 을(를) 위한 촛불을 껐어요 🎉`);
   }
 
-  // 연기 파티클 생성 및 업데이트
+  //연기 파티클 생성 하고 업데이트 하기
   if (!flameOn && hasBlown) {
     if (frameCount % 5 === 0) {
       smokeParticles.push(new Smoke(candleX, candleY - 50));
@@ -73,14 +73,14 @@ function draw() {
 
 function drawCandle(x, y) {
   push();
-  // 몸통
+  //몸통
   fill('#FFDDAA');
   noStroke();
   rect(x - 15, y, 30, 80, 10);
-  // 심지
+  //심지
   fill(50);
   rect(x - 2, y - 40, 4, 40);
-  // 불꽃
+  //불꽃
   if (flameOn) {
     fill(255, 150, 0);
     ellipse(x, y - 50 + random(-2, 2), 20, 30);
@@ -104,7 +104,7 @@ function startCandle() {
   messageDiv.html('');
 }
 
-// Smoke 클래스 정의
+//Smoke 클래스 정의
 class Smoke {
   constructor(x, y) {
     this.x = x + random(-5, 5);
